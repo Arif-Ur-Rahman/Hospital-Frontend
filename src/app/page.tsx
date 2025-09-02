@@ -8,6 +8,8 @@ import { PatientsTable } from '@/components/ui/patients-table';
 import { DoctorsTable } from '@/components/ui/doctors-table';
 import { StatsCards } from '@/components/ui/stats-cards';
 
+// ... existing imports ...
+
 export default function Dashboard() {
   const [patients, setPatients] = useState<Patient[]>([]);
   const [doctors, setDoctors] = useState<Doctor[]>([]);
@@ -64,7 +66,7 @@ export default function Dashboard() {
           )}
 
           {activeTab === 'doctors' && (
-            <DoctorsTable doctors={doctors} />
+            <DoctorsTable doctors={doctors} onRefresh={loadData} />
           )}
         </div>
       </div>
