@@ -76,6 +76,7 @@ export const patientApi = {
   },
 };
 
+
 // Doctor API calls
 export const doctorApi = {
   getAll: async (specialization?: string, department?: string): Promise<Doctor[]> => {
@@ -91,7 +92,30 @@ export const doctorApi = {
     const response = await fetch(`${API_BASE_URL}/doctors/${id}`);
     return response.json();
   },
+
+  create: async (doctor: Omit<Doctor, 'id'>): Promise<Doctor> => {
+    const response = await fetch(`${API_BASE_URL}/doctors`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(doctor),
+    });
+    return response.json();
+  },
+
+  update: async (id: number, doctor: Partial<Doctor>): Promise<Doctor> => {
+    const response = await fetch(`${API_BASE_URL}/doctors/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(doctor),
+    });
+    return response.json();
+  },
+
+  delete: async (id: number): Promise<void> => {
+    await fetch(`${API_BASE_URL}/doctors/${id}`, { method: 'DELETE' });
+  },
 };
+
 
 // Stats API calls
 export const statsApi = {

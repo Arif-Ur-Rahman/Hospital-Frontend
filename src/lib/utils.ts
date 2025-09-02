@@ -18,3 +18,20 @@ export const statusOptions = [
   { value: "discharged", label: "Discharged" },
   { value: "transferred", label: "Transferred" },
 ];
+
+export const doctorSpecializations = [
+  { value: "Cardiology", label: "Cardiology" },
+  { value: "Nephrology", label: "Nephrology" },
+  { value: "Dermatology", label: "Dermatology" },
+  { value: "Allergology", label: "Allergology" },
+  { value: "General Medicine", label: "General Medicine" },
+  { value: "Cardiac Surgery", label: "Cardiac Surgery" },
+];
+
+export const doctorDepartments = [
+  { value: "Heart", label: "Heart" },
+  { value: "Kidney", label: "Kidney" },
+  { value: "Skin", label: "Skin" },
+  { value: "Allergy", label: "Allergy" },
+  { value: "General", label: "General" },
+];
