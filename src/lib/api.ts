@@ -37,6 +37,13 @@ export interface Stats {
   department_stats?: Record<string, number>;
 }
 
+export interface DoctorStats {
+  total_doctors: number;
+  specialization_stats: Record<string, number>;
+  department_stats: Record<string, number>;
+  availability_stats?: Record<string, number>;
+}
+
 // Patient API calls
 export const patientApi = {
   getAll: async (category?: string, status?: string): Promise<Patient[]> => {
@@ -124,7 +131,7 @@ export const statsApi = {
     return response.json();
   },
 
-  getDoctorStats: async (): Promise<any> => {
+  getDoctorStats: async (): Promise<DoctorStats> => {
     const response = await fetch(`${API_BASE_URL}/stats/doctors`);
     return response.json();
   },

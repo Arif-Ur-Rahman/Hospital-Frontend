@@ -30,18 +30,24 @@ export function PatientForm({ open, onOpenChange, patient, onSuccess }: PatientF
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      if (patient) {
-        await patientApi.update(patient.id, formData);
-      } else {
-        await patientApi.create(formData);
-      }
-      onSuccess();
-    } catch (error) {
-      console.error('Error saving patient:', error);
+  e.preventDefault();
+  try {
+    // Convert age to number
+    const submitData = {
+      ...formData,
+      age: formData.age ? Number(formData.age) : 0
+    };
+    
+    if (patient) {
+      await patientApi.update(patient.id, submitData);
+    } else {
+      await patientApi.create(submitData);
     }
-  };
+    onSuccess();
+  } catch (error) {
+    console.error('Error saving patient:', error);
+  }
+};
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
