@@ -3,7 +3,6 @@ import { Patient } from '@/lib/api';
 import { patientApi } from '@/lib/api'; // Add this import
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { patientCategories, statusOptions } from '@/lib/utils';
 import { PatientForm } from './patient-form';
 import { Edit, Trash2 } from 'lucide-react';
 
